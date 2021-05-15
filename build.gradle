@@ -1,0 +1,68 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    apply from: 'versions.gradle'
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+
+        classpath 'com.google.gms:google-services:4.3.7'
+
+        classpath "gradle.plugin.com.stepango.aar2jar:aar2jar:0.6"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+
+subprojects {
+    plugins.withId("com.android.library") {
+        android {
+            compileSdkVersion 30
+
+            defaultConfig {
+                minSdkVersion 24
+                targetSdkVersion 30
+            }
+
+            lintOptions {
+                warning 'InvalidPackage'
+            }
+        }
+    }
+
+    plugins.withId("com.android.application") {
+        android {
+            compileSdkVersion 30
+
+            defaultConfig {
+                minSdkVersion 24
+                targetSdkVersion 30
+            }
+
+            lintOptions {
+                warning 'InvalidPackage'
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

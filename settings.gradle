@@ -1,0 +1,13 @@
+include ':app'
+
+includeWithPath(':core', "shared/core")
+includeWithPath(':coreui', "shared/coreui")
+includeWithPath(':architecture-mvvm', "shared/architecture/mvvm")
+includeWithPath(':architecture-network', "shared/architecture/network")
+
+rootProject.name = "FlyNavigator"
+
+def includeWithPath(String moduleName, String modulePath) {
+    include(moduleName)
+    project(moduleName).projectDir = new File(rootDir, modulePath)
+}

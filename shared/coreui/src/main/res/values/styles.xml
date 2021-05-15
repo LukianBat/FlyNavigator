@@ -1,0 +1,74 @@
+<resources>
+
+    <style name="Theme.FlyNavigator" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/colorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="textAppearanceButton">@style/TextAppearance.FlyNavigator.Button</item>
+        <item name="materialButtonStyle">@style/Widget.FlyNavigator.Button</item>
+        <item name="buttonStyle">@style/Widget.FlyNavigator.Button</item>
+        <item name="textInputStyle">@style/Widget.FlyNavigator.TextInputLayout</item>
+        <item name="editTextStyle">@style/Widget.FlyNavigator.EditTextInputLayout</item>
+        <item name="toolbarStyle">@style/Theme.FlyNavigator.Toolbar</item>
+    </style>
+
+    <!-- TextInput -->
+    <style name="Widget.FlyNavigator.TextInputLayout" parent="Widget.Design.TextInputLayout" />
+
+    <!-- EditText -->
+    <style name="Widget.FlyNavigator.EditTextInputLayout" parent="Widget.AppCompat.EditText" />
+
+    <!--Button-->
+    <style name="Widget.FlyNavigator.Button" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:minWidth">64dp</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="backgroundTint">@color/button_with_disable</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="TextAppearance.FlyNavigator.Button" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Theme.FlyNavigator.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:titleTextAppearance">@style/ToolbarTitleTextAppearance</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="ToolbarTitleTextAppearance">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">#8F94AC</item>
+    </style>
+
+    <style name="DividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:background">#8F94AC</item>
+    </style>
+
+    <style name="Widget.FlyNavigator.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minHeight">64dp</item>
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="rippleColor">@color/buttonRippleColor</item>
+    </style>
+</resources>
