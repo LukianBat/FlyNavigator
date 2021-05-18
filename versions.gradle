@@ -19,7 +19,6 @@ ext {
             lifecycle                    : '1.1.1',
             prefser                      : '2.2.2',
             annotations                  : '1.0.1',
-            okhttp                       : '3.12.6',
-            koptional                    : "1.6.0",
+            okhttp                       : '3.12.6'
     ]
 }

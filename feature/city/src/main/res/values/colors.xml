@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="divider_color">#8F94AC</color>
+    <color name="message_card_background_color">#C9E0FF</color>
+    <color name="error_card_background_color">#FF866C</color>
+</resources>

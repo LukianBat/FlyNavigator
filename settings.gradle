@@ -1,5 +1,8 @@
 include ':app'
 
+include ':feature:city'
+include ':feature:tickets'
+
 includeWithPath(':core', "shared/core")
 includeWithPath(':coreui', "shared/coreui")
 includeWithPath(':architecture-mvvm', "shared/architecture/mvvm")

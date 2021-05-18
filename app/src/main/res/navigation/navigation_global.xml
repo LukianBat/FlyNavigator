@@ -6,6 +6,22 @@
 
     <fragment
         android:id="@+id/fragment_start"
-        android:name="com.lukianbat.flynavigator.start.StartFragment">
+        android:name="com.lukianbat.flynavigator.presentation.start.StartFragment">
+        <action
+            android:id="@+id/chooseCitiesAction"
+            app:destination="@+id/fragment_cities_flow" />
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_cities_flow"
+        android:name="com.lukianbat.feature.city.feature.CitiesFlowFragment" />
+
+    <fragment
+        android:id="@+id/fragment_tickets_flow"
+        android:name="com.lukianbat.tickets.feature.TicketsFlowFragment" />
+
+    <action
+        android:id="@id/chosenCitiesAction"
+        app:destination="@+id/fragment_tickets_flow"
+        app:popUpTo="@id/fragment_cities_flow" />
 </navigation>

@@ -9,6 +9,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBE94Fg50HcUIia7AbJO_BsWssgaL3Tfjo" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.Launcher">
@@ -18,9 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".main.MainActivity"
-            android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.lukianbat.flynavigator.presentation.main.MainActivity" />
     </application>
 
 </manifest>

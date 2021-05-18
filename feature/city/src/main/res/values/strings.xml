@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choose_city_search_hint">Введите имя города</string>
+    <string name="choose_city_selected_text">Город выбран, нажмите Далее</string>
+    <string name="choose_city_not_found_error_text">Город не найден :(</string>
+    <string name="choose_city_error_text">Произошла ошибка при загрузке данных :(</string>
+    <string name="choose_city_select_button">Далее</string>
+
+    <string name="routes_next_button">Далее</string>
+    <string name="routes_title">Укажи направление своего полёта</string>
+    <string name="routes_from_edit_text_hint">Откуда - </string>
+    <string name="routes_to_edit_text_hint">Куда - </string>
+    <string name="routes_select_from_text">Выбери откуда полетим</string>
+    <string name="routes_select_to_text">Выбери куда полетим</string>
+    <string name="routes_selected">Направление выбрано, полетели!</string>
+    <string name="routes_same_city_error">Вы указали одинаковые города!</string>
+</resources>
