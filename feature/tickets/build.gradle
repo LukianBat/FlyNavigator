@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    viewBinding.enabled = true
+
+    kotlinOptions.jvmTarget = "1.8"
+
+}
+
+dependencies {
+    implementation "androidx.core:core:$versions.core"
+    implementation "androidx.core:core-ktx:$versions.corektx"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "androidx.fragment:fragment-ktx:$versions.fragment"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+    implementation "com.google.android.material:material:$versions.material"
+
+    implementation project(":core")
+    implementation project(":coreui")
+    implementation project(":architecture-mvvm")
+
+    // dagger
+    implementation "com.google.dagger:dagger:$versions.dagger"
+    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation 'androidx.navigation:navigation-runtime-ktx:2.3.5'
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+}
