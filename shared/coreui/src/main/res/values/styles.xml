@@ -71,4 +71,9 @@
         <item name="backgroundTint">@android:color/transparent</item>
         <item name="rippleColor">@color/buttonRippleColor</item>
     </style>
+
+    <style name="FlyNavigatorTextFieldTheme" parent="">
+        <item name="colorPrimary">#A0C9FE</item>
+        <item name="colorOnSurface">#A0C9FE</item>
+    </style>
 </resources>
