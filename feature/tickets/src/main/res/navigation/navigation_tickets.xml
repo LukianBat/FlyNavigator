@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_tickets"
+    app:startDestination="@id/fragment_loading_tickets">
+
+    <fragment
+        android:id="@+id/fragment_loading_tickets"
+        android:name="com.lukianbat.tickets.feature.loading.presentation.LoadingTicketsFragment">
+        <action
+            android:id="@+id/ticketsLoaded"
+            app:destination="@id/fragment_tickets_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_tickets_list"
+        android:name="com.lukianbat.tickets.feature.tickets.presentation.TicketsListFragment" />
+</navigation>
