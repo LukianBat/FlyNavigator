@@ -1,4 +1,4 @@
-package com.lukianbat.flynavigator.start
+package com.lukianbat.flynavigator.presentation.start
 
 import android.os.Bundle
 import android.view.View
@@ -17,6 +17,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        navController.navigate(R.id.chooseCitiesAction)
 //        viewModel.onboardingPassed().observeData(viewLifecycleOwner, this::handleOnboardingPassed)
     }
 

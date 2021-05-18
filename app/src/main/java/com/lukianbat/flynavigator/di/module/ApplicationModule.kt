@@ -4,7 +4,9 @@ import android.content.Context
 import android.util.Log
 import com.lukianbat.architecture.mvvm.RxViewOutput
 import com.lukianbat.architecture.network.NetworkLoggingInterceptor
+import com.lukianbat.core.common.ChosenCitiesGateway
 import com.lukianbat.flynavigator.DefaultErrorAdapter
+import com.lukianbat.flynavigator.domain.ChosenCitiesGatewayImpl
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -35,6 +37,10 @@ class ApplicationModule {
     fun provideErrorAdapter(context: Context): RxViewOutput.ErrorAdapter {
         return DefaultErrorAdapter(context)
     }
+
+    @Provides
+    @Singleton
+    fun provideChosenCitiesGateway(): ChosenCitiesGateway = ChosenCitiesGatewayImpl()
 
     companion object {
         private const val NETWORK_LOG_TAG = "NETWORK_LOG"

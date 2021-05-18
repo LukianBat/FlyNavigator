@@ -47,6 +47,9 @@ dependencies {
     implementation project(path: ':architecture-network')
     implementation project(path: ':architecture-mvvm')
 
+    implementation project(":feature:tickets")
+    implementation project(":feature:city")
+
     // dagger
     implementation "com.google.dagger:dagger:$versions.dagger"
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"

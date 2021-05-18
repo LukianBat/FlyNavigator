@@ -1,4 +1,4 @@
-package com.lukianbat.flynavigator.main
+package com.lukianbat.flynavigator.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import com.lukianbat.flynavigator.R

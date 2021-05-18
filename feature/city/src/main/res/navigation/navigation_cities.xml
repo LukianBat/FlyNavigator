@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_cities"
+    app:startDestination="@id/fragment_routes">
+
+    <fragment
+        android:id="@+id/fragment_routes"
+        android:name="com.lukianbat.feature.city.feature.routes.presentation.RoutesFragment">
+        <action
+            android:id="@+id/chooseCityAction"
+            app:destination="@id/fragment_choose_city"
+            app:popUpTo="@+id/fragment_routes" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_choose_city"
+        android:name="com.lukianbat.feature.city.feature.city.presentation.ChooseCityFragment">
+        <action
+            android:id="@+id/cityChosenAction"
+            app:destination="@+id/fragment_routes" />
+    </fragment>
+</navigation>
