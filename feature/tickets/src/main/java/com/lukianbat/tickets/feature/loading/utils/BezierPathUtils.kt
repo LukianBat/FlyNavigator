@@ -3,27 +3,7 @@ package com.lukianbat.tickets.feature.loading.utils
 import com.google.android.gms.maps.model.LatLng
 import kotlin.math.*
 
-object AnimationUtils {
-    fun getMarkerBearing(begin: LatLng, end: LatLng): Float {
-        val lat = abs(begin.latitude - end.latitude)
-        val lng = abs(begin.longitude - end.longitude)
-        val bearing = when {
-            begin.latitude < end.latitude && begin.longitude < end.longitude -> {
-                Math.toDegrees(atan(lng / lat) - 90)
-            }
-            begin.latitude >= end.latitude && begin.longitude < end.longitude -> {
-                (90 - Math.toDegrees(atan(lng / lat)))
-            }
-            begin.latitude >= end.latitude && begin.longitude >= end.longitude -> {
-                (Math.toDegrees(atan(lng / lat)) + 90)
-            }
-            begin.latitude < end.latitude && begin.longitude >= end.longitude -> {
-                (90 - Math.toDegrees(atan(lng / lat)) + 180)
-            }
-            else -> (-1)
-        }
-        return bearing.toFloat()
-    }
+object BezierPathUtils {
 
     fun getBezierLinePoints(
         point1: LatLng,
