@@ -12,6 +12,7 @@ class LoadingTicketViewModel @Inject constructor(
 ) : RxViewModel() {
 
     private val routes = RxViewOutput<RouteUiModel>(this, RxViewOutput.Strategy.ONCE)
+    private var uiModel: RouteUiModel? = null
 
     fun routes() = routes.asOutput()
 
@@ -20,12 +21,19 @@ class LoadingTicketViewModel @Inject constructor(
             .map {
                 val firstPoint = it.fromCity.toUi()
                 val secondPoint = it.toCity.toUi()
-                RouteUiModel(
-                    firstPoint,
-                    secondPoint,
-                    BezierPathUtils.getBezierLinePoints(firstPoint.latLng, secondPoint.latLng)
-                )
+                if (uiModel == null) {
+                    uiModel = RouteUiModel(
+                        firstPoint,
+                        secondPoint,
+                        BezierPathUtils.getBezierLinePoints(firstPoint.latLng, secondPoint.latLng)
+                    )
+                }
+                requireNotNull(uiModel)
             }
         routes.source(sourceChosenCities, errorAdapter)
+    }
+
+    fun onStopAnimation(animationLastPointIndex: Int) {
+        uiModel = uiModel?.copy(lastPointIndex = animationLastPointIndex)
     }
 }
