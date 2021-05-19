@@ -18,11 +18,5 @@ class StartFragment : Fragment(R.layout.fragment_start) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController.navigate(R.id.chooseCitiesAction)
-//        viewModel.onboardingPassed().observeData(viewLifecycleOwner, this::handleOnboardingPassed)
-    }
-
-    private fun handleOnboardingPassed(onboardingPassed: Boolean) {
-//        if (onboardingPassed) return navController.navigate(R.id.chooseCityAction)
-//        navController.navigate(R.id.onboardingAction)
     }
 }
