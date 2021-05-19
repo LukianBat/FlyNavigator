@@ -4,6 +4,9 @@ import android.animation.ValueAnimator
 import android.os.Handler
 import android.os.Looper
 import android.view.animation.LinearInterpolator
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import kotlin.math.PI
@@ -11,23 +14,41 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 
-class MovingMarkerAnimation(private val marker: Marker) {
+class MovingMarkerAnimation(
+    lifecycle: Lifecycle,
+    private val marker: Marker,
+    private val onAnimationStopListener: ((lastPointIndex: Int) -> Unit)? = null
+) {
 
     private lateinit var prevLocation: LatLng
     private lateinit var currentLocation: LatLng
+    private var currentPointIndex = 0
 
     private val handler = Handler(Looper.getMainLooper())
     private var runnable: Runnable? = null
 
-    fun startAnimation(path: List<LatLng>, stepDuration: Long) {
+    init {
+        lifecycle.addObserver(object : LifecycleObserver {
+            @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+            fun onStop() {
+                stopAnimation()
+            }
+        })
+    }
+
+    fun startAnimation(
+        path: List<LatLng>,
+        stepDuration: Long,
+        lastPointIndex: Int = 0
+    ) {
         if (runnable != null) {
             stopAnimation()
         }
-        var currentPointIndex = 0
+        currentPointIndex = lastPointIndex
         currentLocation = path.first()
         runnable = Runnable {
             run {
-                if (currentPointIndex < path.size) {
+                if (currentPointIndex < path.size - 1) {
                     prevLocation = currentLocation
                     currentLocation = path[currentPointIndex]
                     updateMarkerLocation(stepDuration)
@@ -44,6 +65,7 @@ class MovingMarkerAnimation(private val marker: Marker) {
     }
 
     fun stopAnimation() {
+        onAnimationStopListener?.invoke(currentPointIndex)
         runnable?.let { handler.removeCallbacks(it) }
         runnable = null
     }

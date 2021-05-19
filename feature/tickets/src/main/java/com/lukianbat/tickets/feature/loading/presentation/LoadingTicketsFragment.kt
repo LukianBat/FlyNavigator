@@ -66,8 +66,12 @@ class LoadingTicketsFragment : Fragment(R.layout.fragment_loading_tickets), OnMa
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mapView.getMapAsync(this)
         viewModel.routes().observeData(viewLifecycleOwner, ::handleRoutes)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mapView.getMapAsync(this)
     }
 
     override fun onResume() {
@@ -114,6 +118,7 @@ class LoadingTicketsFragment : Fragment(R.layout.fragment_loading_tickets), OnMa
         showRoutePath(routeUiModel.routePoints)
         showPlaneMarkerAnimation(
             routeUiModel.routePoints,
+            routeUiModel.lastPointIndex,
             BitmapFactory.decodeResource(resources, R.drawable.ic_plane)
         )
     }
@@ -130,18 +135,27 @@ class LoadingTicketsFragment : Fragment(R.layout.fragment_loading_tickets), OnMa
 
     private fun showPlaneMarkerAnimation(
         directionPoints: List<LatLng>,
+        lastPointIndex: Int,
         bitmap: Bitmap
     ) {
         val planeMarker = googleMap.addMarker(
             MarkerOptions()
                 .icon(BitmapDescriptorFactory.fromBitmap(bitmap))
-                .position(directionPoints.first())
+                .position(directionPoints[lastPointIndex])
                 .flat(true)
                 .anchor(MARKER_ANCHOR_CENTER, MARKER_ANCHOR_CENTER)
         ) as Marker
 
-        val markerAnimation = MovingMarkerAnimation(planeMarker)
-        markerAnimation.startAnimation(directionPoints, PLANE_MARKER_ANIMATION_STEP_DURATION)
+        val markerAnimation = MovingMarkerAnimation(lifecycle, planeMarker) {
+            planeMarker.remove()
+            viewModel.onStopAnimation(it)
+        }
+
+        markerAnimation.startAnimation(
+            directionPoints,
+            PLANE_MARKER_ANIMATION_STEP_DURATION,
+            lastPointIndex
+        )
     }
 
     private fun GoogleMap.addCityMarker(cityUiModel: RouteUiModel.CityUiModel) {
