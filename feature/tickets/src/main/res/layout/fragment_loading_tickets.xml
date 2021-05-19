@@ -15,14 +15,4 @@
         app:layout_constraintTop_toTopOf="parent"
         map:liteMode="true"
         map:mapType="normal" />
-
-    <com.lukianbat.tickets.feature.loading.presentation.FlyAnimationView
-        android:id="@+id/flyAnimationView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
