@@ -1,34 +1,15 @@
-apply plugin: 'com.android.library'
-
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
-android {
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions.jvmTarget = "1.8"
-}
-
 dependencies {
-    // Annotations for nullability
-    api "androidx.annotation:annotation:$versions.annotations"
-
     // Kotlin
     api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
 
     // RxJava
+    api "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
     api "io.reactivex.rxjava2:rxjava:$versions.rxjava"
-
-    //OkHttp
-    api "com.squareup.okhttp3:okhttp:$versions.okhttp"
+    api "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 
     // dagger
     implementation "com.google.dagger:dagger:$versions.dagger"
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"
 
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
 }
