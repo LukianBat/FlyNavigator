@@ -2,13 +2,13 @@ package com.lukianbat.feature.city.feature.routes.presentation
 
 import com.lukianbat.architecture.mvvm.RxViewModel
 import com.lukianbat.architecture.mvvm.RxViewOutput
-import com.lukianbat.core.common.ChosenCitiesModel
+import com.lukianbat.core.common.model.ChosenCitiesModel
 import com.lukianbat.feature.city.common.domain.model.ChooseCityType
 import com.lukianbat.feature.city.common.domain.usecase.CityInteractor
 import javax.inject.Inject
 
 class RoutesViewModel @Inject constructor(
-    private val cityInteractor: CityInteractor,
+    cityInteractor: CityInteractor,
     errorAdapter: RxViewOutput.ErrorAdapter
 ) : RxViewModel() {
 

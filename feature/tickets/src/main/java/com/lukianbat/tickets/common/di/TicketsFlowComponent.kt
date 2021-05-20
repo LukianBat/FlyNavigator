@@ -1,13 +1,12 @@
 package com.lukianbat.tickets.common.di
 
-import com.lukianbat.core.di.FlowScope
 import com.lukianbat.tickets.feature.TicketsFlowFragment
 import com.lukianbat.tickets.feature.loading.di.LoadingTicketsComponent
 import com.lukianbat.tickets.feature.tickets.di.TicketsListComponent
 import dagger.Module
 import dagger.Subcomponent
 
-@FlowScope
+@TicketsFlowScope
 @Subcomponent(modules = [TicketsModule::class, TicketsFlowSubcomponentsModule::class])
 interface TicketsFlowComponent {
 

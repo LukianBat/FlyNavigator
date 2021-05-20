@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
-import com.lukianbat.core.common.ChosenCitiesModel
+import com.lukianbat.core.common.model.ChosenCitiesModel
 import com.lukianbat.coreui.utils.color
 import com.lukianbat.coreui.utils.viewBinding
 import com.lukianbat.feature.city.R

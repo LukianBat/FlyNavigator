@@ -1,7 +1,6 @@
 package com.lukianbat.tickets.common.di
 
 import androidx.lifecycle.ViewModel
-import com.lukianbat.core.di.FlowScope
 import com.lukianbat.core.di.ViewModelKey
 import com.lukianbat.tickets.feature.TicketsFlowViewModel
 import dagger.Binds
@@ -13,7 +12,7 @@ abstract class TicketsModule {
 
     @Binds
     @IntoMap
-    @FlowScope
+    @TicketsFlowScope
     @ViewModelKey(TicketsFlowViewModel::class)
     abstract fun bindViewModel(viewModel: TicketsFlowViewModel): ViewModel
 }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lukianbat.coreui.utils.bindView
 import com.lukianbat.coreui.utils.inflate
 import com.lukianbat.feature.city.R
-import com.lukianbat.core.common.CityModel
+import com.lukianbat.core.common.model.CityModel
 
 internal class CitiesAdapter(
     private val selectCity: (CityModel) -> Unit
