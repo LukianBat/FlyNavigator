@@ -6,7 +6,7 @@
     <string name="choose_city_error_text">Произошла ошибка при загрузке данных :(</string>
     <string name="choose_city_select_button">Далее</string>
 
-    <string name="routes_next_button">Далее</string>
+    <string name="routes_next_button">Поиск</string>
     <string name="routes_title">Укажи направление своего полёта</string>
     <string name="routes_from_edit_text_hint">Откуда - </string>
     <string name="routes_to_edit_text_hint">Куда - </string>
