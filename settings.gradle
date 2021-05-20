@@ -4,6 +4,7 @@ include ':feature:city'
 include ':feature:tickets'
 
 includeWithPath(':core', "shared/core")
+includeWithPath(':coreutils', "shared/coreutils")
 includeWithPath(':coreui', "shared/coreui")
 includeWithPath(':architecture-mvvm', "shared/architecture/mvvm")
 includeWithPath(':architecture-network', "shared/architecture/network")
