@@ -1,15 +1,4 @@
 dependencies {
-    // Kotlin
-    api "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-
     // RxJava
-    api "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
-    api "io.reactivex.rxjava2:rxjava:$versions.rxjava"
-    api "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
-
-    // dagger
-    implementation "com.google.dagger:dagger:$versions.dagger"
-    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
-
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
 }
