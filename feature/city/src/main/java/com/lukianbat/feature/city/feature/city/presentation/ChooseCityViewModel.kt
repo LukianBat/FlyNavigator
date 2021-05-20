@@ -2,7 +2,7 @@ package com.lukianbat.feature.city.feature.city.presentation
 
 import com.lukianbat.architecture.mvvm.RxViewModel
 import com.lukianbat.architecture.mvvm.RxViewOutput
-import com.lukianbat.core.common.CityModel
+import com.lukianbat.core.common.model.CityModel
 import com.lukianbat.core.utils.Optional
 import com.lukianbat.core.utils.toOptional
 import com.lukianbat.feature.city.common.domain.model.ChooseCityType

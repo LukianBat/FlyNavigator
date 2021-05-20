@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.lukianbat.architecture.mvvm.RxViewOutput
 import com.lukianbat.architecture.network.NetworkLoggingInterceptor
-import com.lukianbat.core.common.ChosenCitiesGateway
+import com.lukianbat.core.common.gateway.ChosenCitiesGateway
 import com.lukianbat.flynavigator.DefaultErrorAdapter
 import com.lukianbat.flynavigator.domain.ChosenCitiesGatewayImpl
 import dagger.Module

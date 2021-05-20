@@ -1,12 +1,11 @@
 package com.lukianbat.flynavigator.domain
 
-import com.lukianbat.core.common.ChosenCitiesGateway
-import com.lukianbat.core.common.ChosenCitiesModel
-import com.lukianbat.core.common.CityModel
+import com.lukianbat.core.common.gateway.ChosenCitiesGateway
+import com.lukianbat.core.common.model.ChosenCitiesModel
+import com.lukianbat.core.common.model.CityModel
 import io.reactivex.subjects.BehaviorSubject
-import javax.inject.Inject
 
-class ChosenCitiesGatewayImpl @Inject constructor() : ChosenCitiesGateway {
+class ChosenCitiesGatewayImpl : ChosenCitiesGateway {
     private val citiesBehaviorSubject = BehaviorSubject.createDefault(ChosenCitiesModel())
 
     override fun getChosenCities() = citiesBehaviorSubject

@@ -1,7 +1,7 @@
 package com.lukianbat.feature.city.feature.city.presentation
 
 import androidx.annotation.StringRes
-import com.lukianbat.core.common.CityModel
+import com.lukianbat.core.common.model.CityModel
 
 sealed class CityListItem {
     data class CityItem(val city: CityModel) : CityListItem()

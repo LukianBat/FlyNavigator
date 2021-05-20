@@ -11,7 +11,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
 import com.lukianbat.architecture.mvvm.State
-import com.lukianbat.core.common.CityModel
+import com.lukianbat.core.common.model.CityModel
 import com.lukianbat.core.utils.Optional
 import com.lukianbat.coreui.utils.addAfterTextChangedListener
 import com.lukianbat.coreui.utils.argument

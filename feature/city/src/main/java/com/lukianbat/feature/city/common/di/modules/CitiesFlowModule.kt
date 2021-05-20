@@ -1,8 +1,8 @@
 package com.lukianbat.feature.city.common.di.modules
 
 import androidx.lifecycle.ViewModel
-import com.lukianbat.core.di.FlowScope
 import com.lukianbat.core.di.ViewModelKey
+import com.lukianbat.feature.city.common.di.CityFlowScope
 import com.lukianbat.feature.city.feature.CitiesFlowViewModel
 import dagger.Binds
 import dagger.Module
@@ -14,6 +14,6 @@ abstract class CitiesFlowModule {
     @Binds
     @IntoMap
     @ViewModelKey(CitiesFlowViewModel::class)
-    @FlowScope
+    @CityFlowScope
     abstract fun bindViewModel(viewModel: CitiesFlowViewModel): ViewModel
 }
