@@ -4,13 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.navGraphViewModels
 import com.lukianbat.core.common.ChosenCitiesModel
+import com.lukianbat.coreui.utils.color
 import com.lukianbat.coreui.utils.viewBinding
 import com.lukianbat.feature.city.R
 import com.lukianbat.feature.city.common.di.CitiesFlowComponentController
@@ -97,23 +97,12 @@ class RoutesFragment : Fragment(R.layout.fragment_routes) {
     private fun showMessage(@StringRes messageId: Int, isError: Boolean) {
         messageTextView?.setText(messageId)
         if (!isError) {
-            messageTextView?.setTextColor(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.textColorPrimary
-                )
-            )
-            messageCardView?.setCardBackgroundColor(
-                ContextCompat.getColor(requireContext(), R.color.message_card_background_color)
-            )
+            messageTextView?.setTextColor(color(R.color.textColorPrimary))
+            messageCardView?.setCardBackgroundColor(color(R.color.message_card_background_color))
             return
         }
-        messageCardView?.setCardBackgroundColor(
-            ContextCompat.getColor(requireContext(), R.color.error_card_background_color)
-        )
-        messageTextView?.setTextColor(
-            ContextCompat.getColor(requireContext(), android.R.color.white)
-        )
+        messageCardView?.setCardBackgroundColor(color(R.color.error_card_background_color))
+        messageTextView?.setTextColor(color(android.R.color.white))
     }
 
     companion object {

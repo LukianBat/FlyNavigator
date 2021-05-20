@@ -31,7 +31,8 @@ internal class ViewBindingDelegate<T>(
     override fun getValue(thisRef: Any, property: KProperty<*>): T {
         val aBinding = binding
         if (aBinding != null) return aBinding
-        val view = fragment.view ?: throw IllegalStateException("Attempt to use binding before onViewCreated()")
+        val view = fragment.view
+            ?: throw IllegalStateException("Attempt to use binding before onViewCreated()")
         return bindingProvider(view).also { binding = it }
     }
 }

@@ -1,3 +1,6 @@
+import com.android.build.gradle.AppPlugin
+import com.android.build.gradle.LibraryPlugin
+
 buildscript {
     apply from: 'versions.gradle'
 
@@ -10,9 +13,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:4.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-
         classpath 'com.google.gms:google-services:4.3.7'
-
         classpath "gradle.plugin.com.stepango.aar2jar:aar2jar:0.6"
     }
 }
@@ -31,32 +32,67 @@ allprojects {
 }
 
 subprojects {
-    plugins.withId("com.android.library") {
-        android {
-            compileSdkVersion 30
+    def directories = ["feature"]
 
+    if (!directories.contains(project.name)) {
+
+        def isAppOrFeature = project.name == "app" || project.path.contains("feature")
+
+        if (project.name == "app") {
+            apply plugin: AppPlugin
+        } else {
+            apply plugin: LibraryPlugin
+        }
+
+        apply plugin: 'kotlin-android'
+        apply plugin: 'kotlin-kapt'
+
+        sourceSets {
+            main.java.srcDirs += ["src/main/kotlin"]
+        }
+
+        android {
             defaultConfig {
+                compileSdkVersion 30
+                buildToolsVersion "30.0.2"
                 minSdkVersion 24
                 targetSdkVersion 30
+                versionCode 1
+                versionName "1.0"
             }
 
-            lintOptions {
-                warning 'InvalidPackage'
+            if (isAppOrFeature) {
+                viewBinding {
+                    enabled = true
+                }
+            }
+
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+
+            kotlinOptions {
+                jvmTarget = '1.8'
             }
         }
-    }
 
-    plugins.withId("com.android.application") {
-        android {
-            compileSdkVersion 30
+        dependencies {
+            if (isAppOrFeature) {
+                implementation "androidx.core:core-ktx:$versions.corektx"
 
-            defaultConfig {
-                minSdkVersion 24
-                targetSdkVersion 30
-            }
+                implementation project(":core")
+                implementation project(":coreui")
+                implementation project(":architecture-mvvm")
 
-            lintOptions {
-                warning 'InvalidPackage'
+                // dagger
+                implementation "com.google.dagger:dagger:$versions.dagger"
+                kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+
+                // jetpack
+                implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+                implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+                implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
             }
         }
     }

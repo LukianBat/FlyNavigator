@@ -20,6 +20,8 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.*
 import com.google.maps.android.ui.IconGenerator
+import com.lukianbat.coreui.utils.color
+import com.lukianbat.coreui.utils.drawable
 import com.lukianbat.feature.map.R
 import com.lukianbat.tickets.common.di.TicketsFlowComponentController
 import com.lukianbat.tickets.feature.loading.utils.MovingMarkerAnimation
@@ -127,7 +129,7 @@ class LoadingTicketsFragment : Fragment(R.layout.fragment_loading_tickets), OnMa
         val polyLineOptions = PolylineOptions().apply {
             width(POLYLINE_WIDTH)
             pattern(listOf(Gap(POLYLINE_GAP), Dot()))
-            color(ContextCompat.getColor(requireContext(), R.color.route_point_color))
+            color(this@LoadingTicketsFragment.color(R.color.route_point_color))
             addAll(points)
         }
         googleMap.addPolyline(polyLineOptions)
@@ -160,7 +162,7 @@ class LoadingTicketsFragment : Fragment(R.layout.fragment_loading_tickets), OnMa
 
     private fun GoogleMap.addCityMarker(cityUiModel: RouteUiModel.CityUiModel) {
         val iconGen = IconGenerator(requireContext()).apply {
-            setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_marker))
+            setBackground(drawable(R.drawable.bg_marker))
             setTextAppearance(R.style.markerTextStyle)
         }
 
